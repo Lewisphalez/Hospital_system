@@ -1,0 +1,38 @@
+{% extends 'starter-page.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center">Make a Payment</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" action="{% url 'stk' %}" class="col-md-6 mx-auto">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number:</label>
+                    <input type="number"
+                           class="form-control"
+                           id="phone"
+                           name="phone"
+                           value="254"
+                           placeholder="Phone Number">
+                </div>
+
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Amount:</label>
+                    <input type="text"
+                           class="form-control"
+                           id="amount"
+                           name="amount"
+                           placeholder="Amount">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit Payment</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
